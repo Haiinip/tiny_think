@@ -1,0 +1,68 @@
+.alphabet-game {
+    text-align: center;
+    padding: 40px;
+    font-family: 'Comic Sans MS', sans-serif;
+}
+
+.title {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #4A90E2;
+}
+
+.letter-display {
+    font-size: 120px;
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+    border-radius: 20px;
+    background-color: #FFD966;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.controls button {
+    font-size: 32px;
+    padding: 15px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: #6FA8DC;
+    color: white;
+}
+
+.controls button:hover {
+    background-color: #3D85C6;
+}
+
+.instruction {
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+/* === GRID HURUF ABJAD === */
+.huruf-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.huruf-item {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 20px 0;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    color: #0DB9B1;
+    transition: transform 0.2s ease;
+}
+
+.huruf-item:hover {
+    transform: scale(1.1);
+}

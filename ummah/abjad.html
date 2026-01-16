@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Pengenalan Huruf Abjad</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            background-color: #F5F7FA;
+            text-align: center;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #4A90E2;
+        }
+
+        .huruf-box {
+            width: 220px;
+            height: 220px;
+            margin: 30px auto;
+            background-color: #FFD966;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 140px;
+            font-weight: bold;
+        }
+
+        .kontrol button {
+            font-size: 30px;
+            padding: 15px 25px;
+            margin: 10px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            background-color: #6FA8DC;
+            color: white;
+        }
+
+        .kontrol button:hover {
+            background-color: #3D85C6;
+        }
+
+        .petunjuk {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Pengenalan Huruf Abjad</h1>
+
+<div class="huruf-box" id="hurufBox">A</div>
+
+<div class="kontrol">
+    <button onclick="hurufSebelumnya()">⬅</button>
+    <button onclick="ucapkanHuruf()">🔊</button>
+    <button onclick="hurufSelanjutnya()">➡</button>
+</div>
+
+<p class="petunjuk">
+    Tekan tombol suara untuk mendengar bunyi huruf.
+</p>
+
+<script>
+    const huruf = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+    let index = 0;
+
+    const hurufBox = document.getElementById("hurufBox");
+
+    function perbaruiHuruf() {
+        hurufBox.textContent = huruf[index];
+    }
+
+    function hurufSelanjutnya() {
+        index = (index + 1) % huruf.length;
+        perbaruiHuruf();
+        ucapkanHuruf();
+    }
+
+    function hurufSebelumnya() {
+        index = (index - 1 + huruf.length) % huruf.length;
+        perbaruiHuruf();
+        ucapkanHuruf();
+    }
+
+    function ucapkanHuruf() {
+        const teks = huruf[index];
+        const suara = new SpeechSynthesisUtterance(teks);
+        suara.lang = "id-ID";
+        suara.rate = 0.8;
+        speechSynthesis.speak(suara);
+    }
+
+    perbaruiHuruf();
+</script>
+
+</body>
+</html>
